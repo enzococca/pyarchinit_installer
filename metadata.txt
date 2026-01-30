@@ -1,0 +1,30 @@
+[general]
+name=PyArchInit Installer
+qgisMinimumVersion=3.22
+description=Installer and updater for PyArchInit plugin. Download and install master or development branches.
+version=1.0.0
+author=PyArchInit Team
+email=info@pyarchinit.com
+
+about=This plugin allows you to easily install or update PyArchInit directly from GitHub.
+    You can choose between the stable master branch or the development branch (qt6-migration).
+    The plugin automatically handles existing installations, removing old versions and ensuring
+    the plugin is correctly named as 'pyarchinit'.
+
+tracker=https://github.com/pyarchinit/pyarchinit/issues
+repository=https://github.com/pyarchinit/pyarchinit
+
+changelog=
+    1.0.0 - Initial release
+        - Download master or dev branch
+        - Automatic version detection
+        - Remove existing installations
+        - Proper plugin renaming
+
+tags=archaeology,installer,pyarchinit,update
+
+homepage=https://github.com/pyarchinit/pyarchinit
+category=Plugins
+icon=icon.png
+experimental=False
+deprecated=False
