@@ -228,7 +228,6 @@ class InstallerDialog(QDialog):
         self.install_button.setEnabled(False)
         self.master_radio.setEnabled(False)
         self.dev_radio.setEnabled(False)
-
         self.stratigraph_radio.setEnabled(False)
         self.progress_bar.setVisible(True)
 
