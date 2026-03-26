@@ -18,6 +18,9 @@ from qgis.core import QgsApplication
 
 from .installer_dialog import InstallerDialog
 
+# Qt5/Qt6 enum compatibility
+NETWORK_NO_ERROR = getattr(QNetworkReply, 'NoError', None) or QNetworkReply.NetworkError.NoError
+
 
 class PyArchInitInstaller:
     """QGIS Plugin Implementation."""
@@ -250,7 +253,7 @@ class PyArchInitInstaller:
             progress_callback(f"Downloading {branch} branch...")
 
         def on_download_complete(reply):
-            if reply.error() != QNetworkReply.NoError:
+            if reply.error() != NETWORK_NO_ERROR:
                 if finished_callback:
                     finished_callback(False, f"Download error: {reply.errorString()}")
                 return

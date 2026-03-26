@@ -11,6 +11,13 @@ from qgis.PyQt.QtWidgets import (
 )
 from qgis.PyQt.QtGui import QFont
 
+# Qt5/Qt6 enum compatibility
+ALIGN_CENTER = getattr(Qt, 'AlignCenter', None) or Qt.AlignmentFlag.AlignCenter
+FRAME_HLINE = getattr(QFrame, 'HLine', None) or QFrame.Shape.HLine
+FRAME_SUNKEN = getattr(QFrame, 'Sunken', None) or QFrame.Shadow.Sunken
+MSG_YES = getattr(QMessageBox, 'Yes', None) or QMessageBox.StandardButton.Yes
+MSG_NO = getattr(QMessageBox, 'No', None) or QMessageBox.StandardButton.No
+
 
 class InstallerDialog(QDialog):
     """Dialog for PyArchInit Installer."""
@@ -40,19 +47,19 @@ class InstallerDialog(QDialog):
         title_font.setPointSize(16)
         title_font.setBold(True)
         title_label.setFont(title_font)
-        title_label.setAlignment(Qt.AlignCenter)
+        title_label.setAlignment(ALIGN_CENTER)
         layout.addWidget(title_label)
 
         # Subtitle
         subtitle = QLabel("Install or update PyArchInit plugin from GitHub")
-        subtitle.setAlignment(Qt.AlignCenter)
+        subtitle.setAlignment(ALIGN_CENTER)
         subtitle.setStyleSheet("color: gray;")
         layout.addWidget(subtitle)
 
         # Separator
         line = QFrame()
-        line.setFrameShape(QFrame.HLine)
-        line.setFrameShadow(QFrame.Sunken)
+        line.setFrameShape(FRAME_HLINE)
+        line.setFrameShadow(FRAME_SUNKEN)
         layout.addWidget(line)
 
         # Current installation status
@@ -165,7 +172,7 @@ class InstallerDialog(QDialog):
         )
         warning_label.setWordWrap(True)
         warning_label.setStyleSheet("color: #ff9800; font-size: 10px;")
-        warning_label.setAlignment(Qt.AlignCenter)
+        warning_label.setAlignment(ALIGN_CENTER)
         layout.addWidget(warning_label)
 
         self.setLayout(layout)
@@ -218,10 +225,10 @@ class InstallerDialog(QDialog):
                 f"Current version: {existing['version'] or 'Unknown'}\n"
                 f"Current folder: {existing['folder_name']}\n\n"
                 f"Install {branch} branch?",
-                QMessageBox.Yes | QMessageBox.No,
-                QMessageBox.No
+                MSG_YES | MSG_NO,
+                MSG_NO
             )
-            if reply != QMessageBox.Yes:
+            if reply != MSG_YES:
                 return
 
         # Disable UI during installation
