@@ -1,0 +1,37 @@
+[general]
+name=PyArchInit Installer
+qgisMinimumVersion=3.22
+qgisMaximumVersion=4.99
+description=Installer and updater for PyArchInit plugin. Download and install master, development or sketcher branches.
+version=1.1.0
+author=ENZO COCCA
+email=enzo.ccc@gmail.com
+
+about=This plugin allows you to easily install or update PyArchInit directly from GitHub.
+    You can choose between the stable master branch, the development branch (qt6-migration)
+    or the sketcher sketching tools branch (Stratigraph_00001).
+    The plugin automatically handles existing installations, removing old versions and ensuring
+    the plugin is correctly named as 'pyarchinit'.
+    Compatible with both QGIS 3.x (Qt5) and QGIS 4.x (Qt6).
+
+tracker=https://github.com/enzococca/pyarchinit_installer/issues
+repository=https://github.com/enzococca/pyarchinit_installer
+
+changelog=
+    1.1.0 - Added Stratigraph_00001 branch support
+        - Added sketcher sketching tools branch (Stratigraph_00001)
+        - Added QGIS 4.x / Qt6 compatibility (qgisMaximumVersion=4.99)
+    1.0.0 - Initial release
+        - Download master or dev branch
+        - Automatic version detection
+        - Remove existing installations
+        - Proper plugin renaming
+
+tags=archaeology,installer,pyarchinit,update,sketcher,sketching,qt6-compatible
+
+homepage=https://github.com/enzococca/pyarchinit_installer
+
+category=Plugins
+icon=icon.png
+experimental=False
+deprecated=False
