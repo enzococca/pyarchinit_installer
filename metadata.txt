@@ -3,7 +3,7 @@ name=PyArchInit Installer
 qgisMinimumVersion=3.22
 qgisMaximumVersion=4.99
 description=Installer and updater for PyArchInit plugin. Download and install master, development or sketcher branches.
-version=1.1.0
+version=1.2.0
 author=ENZO COCCA
 email=enzo.ccc@gmail.com
 
@@ -18,6 +18,8 @@ tracker=https://github.com/enzococca/pyarchinit_installer/issues
 repository=https://github.com/enzococca/pyarchinit_installer
 
 changelog=
+    1.2.0 - Fixed Qt6 scoped enum compatibility for QGIS 4
+        - Qt.AlignCenter, QFrame.HLine, QMessageBox.Yes/No, QNetworkReply.NoError
     1.1.0 - Added Stratigraph_00001 branch support
         - Added sketcher sketching tools branch (Stratigraph_00001)
         - Added QGIS 4.x / Qt6 compatibility (qgisMaximumVersion=4.99)
