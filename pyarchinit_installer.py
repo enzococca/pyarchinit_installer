@@ -29,7 +29,6 @@ class PyArchInitInstaller:
     REPO_OWNER = "pyarchinit"
     REPO_NAME = "pyarchinit"
     MASTER_BRANCH = "master"
-    DEV_BRANCH = "feature/qt6-migration"
     STRATIGRAPH_BRANCH = "Stratigraph_00001"
 
     GITHUB_ZIP_URL = "https://github.com/{owner}/{repo}/archive/refs/heads/{branch}.zip"
@@ -238,13 +237,12 @@ class PyArchInitInstaller:
     def install_plugin(self, branch, progress_callback=None, finished_callback=None):
         """Download and install the plugin from the specified branch.
 
-        :param branch: Branch to install ('master' or 'dev')
+        :param branch: Branch to install ('master' or 'stratigraph')
         :param progress_callback: Function to call with progress updates
         :param finished_callback: Function to call when finished (success, message)
         """
         branch_map = {
             'master': self.MASTER_BRANCH,
-            'dev': self.DEV_BRANCH,
             'stratigraph': self.STRATIGRAPH_BRANCH,
         }
         actual_branch = branch_map.get(branch, self.MASTER_BRANCH)

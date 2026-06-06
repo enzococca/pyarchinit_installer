@@ -98,21 +98,12 @@ class InstallerDialog(QDialog):
         master_desc.setStyleSheet("color: gray; font-size: 10px;")
         branch_layout.addWidget(master_desc)
 
-        self.dev_radio = QRadioButton("Development (Qt6 Migration)")
-        self.dev_radio.setToolTip("Download the qt6-migration development branch")
-        self.branch_button_group.addButton(self.dev_radio, 1)
-        branch_layout.addWidget(self.dev_radio)
-
-        dev_desc = QLabel("    Latest features, may be unstable (branch: feature/qt6-migration)")
-        dev_desc.setStyleSheet("color: gray; font-size: 10px;")
-        branch_layout.addWidget(dev_desc)
-
-        self.stratigraph_radio = QRadioButton("Sketcher sketching (Stratigraph_00001)")
-        self.stratigraph_radio.setToolTip("Download the Stratigraph_00001 branch")
-        self.branch_button_group.addButton(self.stratigraph_radio, 2)
+        self.stratigraph_radio = QRadioButton("Development (Stratigraph_00001)")
+        self.stratigraph_radio.setToolTip("Download the Stratigraph_00001 development branch")
+        self.branch_button_group.addButton(self.stratigraph_radio, 1)
         branch_layout.addWidget(self.stratigraph_radio)
 
-        stratigraph_desc = QLabel("    sketcher sketching tools (branch: Stratigraph_00001)")
+        stratigraph_desc = QLabel("    Latest sketcher sketching tools, may be unstable (branch: Stratigraph_00001)")
         stratigraph_desc.setStyleSheet("color: gray; font-size: 10px;")
         branch_layout.addWidget(stratigraph_desc)
 
@@ -210,8 +201,6 @@ class InstallerDialog(QDialog):
         """Handle install button click."""
         if self.master_radio.isChecked():
             branch = 'master'
-        elif self.dev_radio.isChecked():
-            branch = 'dev'
         else:
             branch = 'stratigraph'
 
@@ -234,7 +223,6 @@ class InstallerDialog(QDialog):
         # Disable UI during installation
         self.install_button.setEnabled(False)
         self.master_radio.setEnabled(False)
-        self.dev_radio.setEnabled(False)
         self.stratigraph_radio.setEnabled(False)
         self.progress_bar.setVisible(True)
 
@@ -264,8 +252,6 @@ class InstallerDialog(QDialog):
         self.progress_bar.setVisible(False)
         self.install_button.setEnabled(True)
         self.master_radio.setEnabled(True)
-        self.dev_radio.setEnabled(True)
-
         self.stratigraph_radio.setEnabled(True)
 
         if success:
